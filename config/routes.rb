@@ -8,5 +8,4 @@ Rails.application.routes.draw do
   get '/buy',        to: "pages#buy"
   get '/sell',       to: "pages#sell"
 
-
 end
