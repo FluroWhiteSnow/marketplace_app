@@ -14,8 +14,13 @@ class ListingsController < ApplicationController
   end
 
   def create
-    @listing = Listing.create(listing_params)
-    redirect_to listings_path
+    @listing = Listing.new(listing_params)
+    if @listing.save
+      Listing.create(user: current_user)
+      redirect_to listing_path(@listing)
+    else
+      render :new
+    end
   end
 
   def edit
@@ -30,8 +35,7 @@ class ListingsController < ApplicationController
   private 
   
   def set_listing
-    id = params[:id] 
-    @listing = Listing.find(id)
+    @listing = Listing.find(params[:listing_id])
   end
 
   def listing_params 
