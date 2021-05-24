@@ -1,4 +1,5 @@
 class ListingsController < ApplicationController
+
   before_action :set_listing, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -13,6 +14,8 @@ class ListingsController < ApplicationController
   end
 
   def create
+    @listing = Listing.create(listing_params)
+    redirect_to listings_path
   end
 
   def edit
@@ -29,5 +32,9 @@ class ListingsController < ApplicationController
   def set_listing
     id = params[:id] 
     @listing = Listing.find(id)
+  end
+
+  def listing_params 
+    params.require(:listing).permit(:title, :price, :description)
   end
 end
