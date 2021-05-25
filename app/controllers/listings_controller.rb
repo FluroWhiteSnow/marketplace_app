@@ -1,22 +1,25 @@
 class ListingsController < ApplicationController
 
-  before_action :set_listing, only: [:show, :edit, :update, :destroy]
+  # before_action :set_listing, only: [:show, :edit, :update, :destroy]
 
   def index
     @listings = Listing.all
   end
 
   def show
+    @listing = Listing.find(params[:id])
   end
 
   def new
     @listing = Listing.new
   end
 
+  
   def create
     @listing = Listing.new(listing_params)
+    @user = current_user
+    @listing.user = @user
     if @listing.save
-      Listing.create(user: current_user)
       redirect_to listing_path(@listing)
     else
       render :new
@@ -33,7 +36,7 @@ class ListingsController < ApplicationController
   end
 
   private 
-  
+
   def set_listing
     @listing = Listing.find(params[:listing_id])
   end
@@ -41,4 +44,5 @@ class ListingsController < ApplicationController
   def listing_params 
     params.require(:listing).permit(:title, :price, :description)
   end
+
 end
