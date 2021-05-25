@@ -16,6 +16,10 @@ Rails.application.routes.draw do
 
   root "pages#home", as: "root"
   
+  get '/purchases/success', to: 'purchases#success'
+  post '/purchases/webhook', to: 'purchases#webhook'
+
+
   get '/restricted', to: 'pages#restricted', as: 'restricted'
   get '/about',      to: "pages#about"
   get '/buy',        to: "pages#buy"

@@ -24,7 +24,7 @@ class ListingsController < ApplicationController
           user_id: current_user ? current_user.id : nil
         }
       },
-      success_url: "#{root_url}",
+      success_url: "#{root_url}purchases/success?listingId=#{@listing.id}",
       cancel_url: "#{root_url}"
     )
     @session_id = session.id
@@ -47,6 +47,7 @@ class ListingsController < ApplicationController
 
   def edit
     @listing = Listing.find(params[:id])
+
   end
 
   def update

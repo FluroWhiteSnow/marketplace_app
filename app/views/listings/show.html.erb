@@ -5,8 +5,9 @@
                 <h1 class="display-5 fw-bold"><%= @listing.title %></h1>
                 <p class="col-md-8 fs-4"> <%= @listing.description %></p>
                 <br>
+                <h3>Price: $<%= @listing.price%></h3>
+                <br>
                 <div class="view_button">
-
                     <button class="view_button btn btn-primary btn-lg" type="button">Contact Vendor</button>
                     <%= button_tag "Buy", data: {stripe:'payment', session_id: @session_id, public_key: Rails.application.credentials.dig(:stripe, :public_key) }, class:"stripe_button view_button btn btn-primary btn-lg", id:'stripe_button' %>
                 </div>

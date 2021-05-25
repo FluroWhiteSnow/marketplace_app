@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  listing_id: 
+  user_id: 
+  receipt_url: MyString
+  payment_intent_id: MyString
+
+two:
+  listing_id: 
+  user_id: 
+  receipt_url: MyString
+  payment_intent_id: MyString

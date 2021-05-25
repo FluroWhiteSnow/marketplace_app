@@ -12,6 +12,7 @@
             <% if listing.user == current_user %>
                 <p>This is your listing! <p>
                 <%= link_to "Delete", listing, method: :delete, class: "btn btn-link"%>
+                <%= link_to "Edit", listing, method: :edit, class: "btn btn-link"%>
             <%end%>
             <%= link_to "View", listing, class: "btn btn-link" %>
         </div>
