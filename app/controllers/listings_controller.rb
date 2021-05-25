@@ -13,7 +13,6 @@ class ListingsController < ApplicationController
   def new
     @listing = Listing.new
   end
-
   
   def create
     @listing = Listing.new(listing_params)
@@ -27,12 +26,21 @@ class ListingsController < ApplicationController
   end
 
   def edit
+    @listing = Listing.find(params[:id])
   end
 
   def update
+    @listing = Listing.find(params[:id])
+    @listing.update(listing_params)
+    redirect_to listing_path(@listing)
   end
 
   def destroy
+    @listing=Listing.find(params[:id])
+    @listing.destroy
+
+    flash.notice="Listing '#{@listing.title}' was deleted"
+    redirect_to listings_path
   end
 
   private 

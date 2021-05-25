@@ -1,3 +1,19 @@
-<h1>Listings#index</h1>
-<%= debug(@Listings) %>
+<h1>Listings Index</h1>
 
+<ol class="listings">
+    <% @listings.each do |listing| %>
+        <div class="listing">
+            <h2>Title: <%= listing.title%></h2>
+            <h3>Price: <%= listing.price%></h3>
+            <p>Description: <%= listing.description%></p>
+            <% unless listing.user == current_user %>
+                <%= link_to "Buy", listing, class: "btn btn-link" %>
+            <%end%>
+            <% if listing.user == current_user %>
+                <p>This is your listing! <p>
+                <%= link_to "Delete", listing, method: :delete, class: "btn btn-link"%>
+            <%end%>
+            <%= link_to "View", listing, class: "btn btn-link" %>
+        </div>
+    <% end %>
+</ol>
