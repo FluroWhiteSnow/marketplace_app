@@ -4,7 +4,6 @@ Rails.application.routes.draw do
     resources :messages
   end
 
-
   resources :listings
 
   # get "/listings", to: "listings#index", as: "listings"
@@ -14,7 +13,7 @@ Rails.application.routes.draw do
   # put "/listings/:id", to: "listings#update"
   # patch "/listings/:id", to: "listings#update"
   # delete "/listings/:id", to: "listings#destroy"
-  # get "/listings/:id/edit", to: "listings#edit", as: "edit_listing"
+  #  get "/listings/:id/edit", to: "listings#edit", as: "edit_listing"
   # put "/listing/:id", to: "listings#update"
 
   devise_for :users
@@ -23,7 +22,6 @@ Rails.application.routes.draw do
   
   get '/purchases/success', to: 'purchases#success'
   post '/purchases/webhook', to: 'purchases#webhook'
-
 
   get '/restricted', to: 'pages#restricted', as: 'restricted'
   get '/about',      to: "pages#about"
