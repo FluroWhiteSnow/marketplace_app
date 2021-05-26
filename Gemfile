@@ -59,3 +59,5 @@ gem 'devise'
 gem 'bootstrap-sass', '3.4.1'
 
 gem "stripe", "~> 5.33"
+
+gem "aws-sdk-s3", "~> 1.95"

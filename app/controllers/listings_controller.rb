@@ -3,7 +3,8 @@ class ListingsController < ApplicationController
   # before_action :set_listing, only: [:show, :edit, :update, :destroy]
 
   def index
-    @listings = Listing.all
+    @listings = Listing.includes(:user).with_attached_images
+
   end
 
   def show
@@ -17,6 +18,7 @@ class ListingsController < ApplicationController
         amount: (@listing.price * 100),
         currency: 'aud',
         quantity: 1,
+        images: @listing.images.empty? ? nil : [@listing.images.first.service_url]
       }],
       payment_intent_data: {
         metadata: {
@@ -71,7 +73,7 @@ class ListingsController < ApplicationController
   end
 
   def listing_params 
-    params.require(:listing).permit(:title, :price, :description)
+    params.require(:listing).permit(:title, :price, :description, images: [])
   end
 
 end
