@@ -4,6 +4,7 @@ Rails.application.routes.draw do
     resources :messages
   end
 
+
   resources :listings
 
   # get "/listings", to: "listings#index", as: "listings"
