@@ -1,0 +1,13 @@
+<% @messages.each do |message| %>
+ <% if message.body %>
+    <p class="<%= message.user == current_user ? "text-end" : "text-start" %>" >
+        <%= message.user.email %><%= message.created_at %>
+        <%= message.body %>
+    </p>
+ <% end %>
+<% end %>
+<%= form_with model: [@conversation, @conversation.messages.build] do |f| %>
+ <%= f.text_area :body %>
+ <%= f.text_field :user_id, value: current_user.id, type: "hidden" %>
+ <%= f.submit "Send Reply" %>
+<% end %>
