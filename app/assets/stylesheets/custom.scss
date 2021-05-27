@@ -242,3 +242,35 @@ footer {
   justify-content: center;
   align-items: center;
 }
+
+.messages-wrap {
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.message-form {
+  margin-top: 50px;
+}
+
+.message-time {
+  margin-right: 20px;
+}
+
+.message-body {
+  padding-top: 10px;
+  padding-bottom: 20px;
+}
+
+.username-message {
+  font-weight: 500;
+  font-size: large;
+  display: inline;
+  text-transform: capitalize;
+}
+
+.each-message {
+  width: 100%;
+}
