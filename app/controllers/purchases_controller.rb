@@ -19,9 +19,9 @@ class PurchasesController < ApplicationController
 
 
         Purchase.create(user_id: buyer_id, 
-        listing_id: listing_id, 
-        payment_intent_id: payment_intent_id, 
-        receipt_url: payment.charges.data[0] 
+            listing_id: listing_id, 
+            payment_intent_id: payment_intent_id, 
+            receipt_url: payment.charges.data[0] 
         )
 
         listing = Listing.find(listing_id)

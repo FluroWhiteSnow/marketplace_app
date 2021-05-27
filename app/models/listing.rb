@@ -5,4 +5,11 @@ class Listing < ApplicationRecord
 
     validates :title, :price, presence: true
 
+    enum status: { active: 1, inactive: 2, purchased: 3 }
+    scope :active, -> { where(status: 1) }
+    after_initialize :set_default_status
+
+    def set_default_status
+    self.status ||= 1
+    end
 end

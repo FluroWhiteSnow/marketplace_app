@@ -1,4 +1,17 @@
-<div class="d-flex flex-column justify-content-center align-items-center">
-<h1 class='p-3'>Thanks for purchasing <%= @listing.title %></h1>
-<%= link_to 'Return to Listings', listings_path %>
+<div class="purchased-container">
+    <h1>You have purchased: <%= @listing.title %></h1>
+</div>
+
+<div class="row image-flex">
+  <div class="col-sm-6 col-md-4">
+    <div class="thumbnail">
+       <img class="img-responsive"> <%= @listing.images.attached? ? ( image_tag @listing.images.first ) : ( image_tag 'default.png') %></img>
+      <div class="caption return-to-listings">
+        <p><%= @listing.description %></p>
+        <p> 
+            <%= link_to 'Return to Listings!', listings_path, class:"btn btn-primary btn-lg" %>
+        </p>
+      </div>
+    </div>
+  </div>
 </div>
