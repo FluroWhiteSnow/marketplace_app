@@ -192,3 +192,37 @@ footer {
 .description-box {
   height: 150px;
 }
+
+.jumbotron {
+  width: 80vw;
+  border-radius: 10px;
+}
+
+.home-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+.home-text {
+  text-align: center;
+}
+
+.home-button-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.home-buttons {
+  margin: 0 10px 0 5px;
+}
+
+@media only screen and (max-width: 850px) {
+  .main-content {
+    width: 80%;
+  }
+}
