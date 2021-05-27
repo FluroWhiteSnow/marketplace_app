@@ -7,6 +7,7 @@ class ListingsController < ApplicationController
 
   end
 
+  #Shows listing and directs the payment through to stripe
   def show
     @listing = Listing.find(params[:id])
     session = Stripe::Checkout::Session.create(
@@ -36,6 +37,7 @@ class ListingsController < ApplicationController
     @listing = Listing.new
   end
   
+  #allows user to create a listing
   def create
     @listing = Listing.new(listing_params)
     @user = current_user
@@ -71,6 +73,7 @@ class ListingsController < ApplicationController
     @listing = Listing.find(params[:listing_id])
   end
 
+  #requires certain params for a listing to be created, displayed etc.
   def listing_params 
     params.require(:listing).permit(:title, :price, :description, images: [])
   end

@@ -6,17 +6,13 @@ class PurchasesController < ApplicationController
         @listing = Listing.find(params[:listingId])
     end
 
+    # Webhook allowing for information to be present after stripe payment completed
+    #Allows for items to be deleted from database after transaction
     def webhook
         payment_intent_id = params[:data][:object][:payment_intent]
         payment = Stripe::PaymentIntent.retrieve(payment_intent_id)
         listing_id = payment.metadata.listing_id
         buyer_id = payment.metadata.user_id
-
-        puts '-' * 20
-        puts listing_id
-        puts buyer_id
-        puts '-' * 20
-
 
         Purchase.create(user_id: buyer_id, 
             listing_id: listing_id, 
