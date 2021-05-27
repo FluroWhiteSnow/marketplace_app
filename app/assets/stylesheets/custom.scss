@@ -160,3 +160,35 @@ footer {
   display: flex;
   flex-direction: row;
 }
+
+.image-flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.title-heading {
+  font-size: 2.5em;
+  text-align: center;
+}
+
+.show-title {
+  text-align: center;
+  font-size: 3em;
+  padding-bottom: 1.5em;
+}
+
+.main-center-listing {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.main-content {
+  width: 30vw;
+}
+
+.description-box {
+  height: 150px;
+}

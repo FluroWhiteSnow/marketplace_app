@@ -1,20 +1,28 @@
 <h1>Listings Index</h1>
-<ol class="listings">
-    <% @listings.each do |listing| %>
-        <div class="listing">
-            <h2>Title: <%= listing.title%></h2>
-            <%= listing.images.attached? ? ( image_tag listing.images.first ) : ( image_tag 'default.png') %>
-            <h3>Price: <%= listing.price%></h3>
-            <p>Description: <%= listing.description%></p>
-            <% unless listing.user == current_user %>
-                <%= link_to "Buy", listing, class: "btn btn-link" %>
-            <%end%>
-            <% if listing.user == current_user %>
-                <p>This is your listing! <p>
-                <%= link_to "Delete", listing, method: :delete, class: "btn btn-link"%>
-                <%= link_to "Edit", edit_listing_path(listing), class:"btn btn-link"%>
-            <%end%>
-            <%= link_to "View", listing, class: "btn btn-link" %>
+
+<% @listings.each do |listing| %>
+    <div class="row image-flex">
+        <div class="col-sm-6 col-md-4">
+            <div class="thumbnail">
+                <h3 class="title-heading"><%= listing.title %></h3>
+                <img class="img-responsive"> <%= listing.images.attached? ? ( image_tag listing.images.first ) : ( image_tag 'default.png') %></img>
+                <div class="caption">
+                    <p><%= listing.description %></p>
+                    <h3>Price: $<%= listing.price%></h3>
+                    <p> 
+                    <% unless listing.user == current_user %>
+                        
+                        <%= link_to "Buy", listing, class: "btn btn-primary" %>
+                    <% end %>
+                    <% if listing.user == current_user %>
+                        <%= link_to "Delete", listing, method: :delete, class: "btn btn-primary"%> 
+                        <%= link_to "Edit Listing", edit_listing_path(listing), class:"btn btn-primary"%>
+                    <%end%>
+                    <%= link_to "View", listing, class: "btn btn-primary" %>
+                    </p>
+                </div>
+            </div>
         </div>
-    <% end %>
-</ol>
+    </div>
+<% end %>
+

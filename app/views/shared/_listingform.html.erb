@@ -1,19 +1,26 @@
-<%= form_with model: @listing do |form| %>
 
-    <%= form.label :title %>
-    <%= form.text_field :title %>
-    <br>
-    <%= form.label :description%>
-    <%= form.text_area :description %>
-    <br>
-    <%= form.label :price%>
-    <%= form.number_field :price, min:0 %>
-    <br>
-    <div class="mb-3">
-    <%= form.label :images %>
-    <%= form.file_field :images, accept: 'image/png, image/jpg, image/jpeg, image/gif', multiple: true%>
+<div class="main-center-listing">
+    <div class="main-content">
+        <%= form_with model: @listing do |form| %>
+            <div class="feild">
+                <%= form.label :title %>
+                <%= form.text_field :title %>
+            </div>
+            <div class="feild">
+                <%= form.label :description%>
+                <%= form.text_area :description, class:"description-box" %>
+            </div>
+            <div class="feild">
+                <%= form.label :price%>
+                <%= form.number_field :price, min:0 %>
+            </div>    
+            <div class="feild">
+                <%= form.label :images %>
+                <%= form.file_field :images, accept: 'image/png, image/jpg, image/jpeg, image/gif', multiple: true%>
+            </div>
+            <div class="actions">
+                <%= form.submit%>
+            </div>
+        <% end %>
     </div>
-
-    <%= form.submit%>
-    
-<% end %>
+</div>
