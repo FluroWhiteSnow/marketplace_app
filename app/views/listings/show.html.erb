@@ -1,31 +1,28 @@
-<div>
-    <div class="view_container">
-        <div class="view_page p-5 mb-4 bg-light rounded-3">
-            <div class=" view_page container-fluid py-5">
-                <h1 class="display-5 fw-bold"><%= @listing.title %></h1>
-                <%= @listing.images.attached? ? ( image_tag @listing.images.first ) : ( image_tag 'default.png') %>
-                <br>
-                <p class="col-md-8 fs-4"> <%= @listing.description %></p>
-                <br>
-                <h3>Price: $<%= @listing.price%></h3>
-                <br>
-                <div class="view_button">
-                    <% unless @listing.user == current_user %>
-                        <%= link_to "Contact Vendor", conversations_path(sender_id: current_user.id, recipient_id: @listing.user.id), 
-                        method: "post", class:"view_button btn btn-primary btn-lg"%>
 
-                        <%= button_tag "Buy", data: {stripe:'payment', session_id: @session_id, public_key: Rails.application.credentials.dig(:stripe, :public_key) }, 
-                        class:"stripe_button view_button btn btn-primary btn-lg", id:'stripe_button' %>
-                    <% end %>
-                    <% if @listing.user == current_user %>
-                        <%= link_to "Delete", @listing, method: :delete, class: "btn btn-link"%> 
-                        <%= link_to "Edit Listing", edit_listing_path, class:"btn btn-link"%>
-                    <%end%>
-                </div>
-            </div>
-        </div>
+<div class="row">
+  <div class="col-sm-6 col-md-4">
+    <div class="thumbnail">
+        <%= @listing.images.attached? ? ( image_tag @listing.images.first ) : ( image_tag 'default.png') %>
+      <div class="caption">
+        <h3><%= @listing.title %></h3>
+        <p><%= @listing.description %></p>
+        <h3>Price: $<%= @listing.price%></h3>
+        <p> 
+        <% unless @listing.user == current_user %>
+            <%= link_to "Contact Vendor", conversations_path(sender_id: current_user.id, recipient_id: @listing.user.id), 
+            method: "post", class:"btn btn-primary"%>
+            <%= button_tag "Buy", data: {stripe:'payment', session_id: @session_id, public_key: Rails.application.credentials.dig(:stripe, :public_key) }, 
+            class:"stripe_button btn btn-primary", id:'stripe_button' %>
+        <% end %>
+        <% if @listing.user == current_user %>
+            <%= link_to "Delete", @listing, method: :delete, class: "btn btn-primary"%> 
+            <%= link_to "Edit Listing", edit_listing_path, class:"btn btn-primary"%>
+        <%end%>
+        </p>
+      </div>
     </div>
-<div>
+  </div>
+</div>
 
 <%= javascript_include_tag "https://js.stripe.com/v3/" %>
 <%= javascript_pack_tag 'stripe' %>
