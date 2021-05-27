@@ -10,11 +10,11 @@
         <p> 
         <% unless @listing.user == current_user %>
             <% if user_signed_in? %>
-            <!-->If user is signed in allows to start a conversation<-->
+            <%# If user is signed in allows to start a conversation %>
               <%= link_to "Contact Vendor", conversations_path(sender_id: current_user.id, recipient_id: @listing.user.id), 
               method: "post", class:"btn btn-primary"%>
             <%else%>
-            <!-->Allows for stripe payment<-->
+            <%# Allows for stripe payment %>
               <%= link_to "Sign In to Message", new_user_session_path, class:"btn btn-primary"%>
               <%= button_tag "Buy", data: {stripe:'payment', session_id: @session_id, public_key: Rails.application.credentials.dig(:stripe, :public_key) }, 
               class:"stripe_button btn btn-primary", id:'stripe_button' %>

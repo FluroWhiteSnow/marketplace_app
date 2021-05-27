@@ -2,7 +2,7 @@
 <div class="jumbo-wrap">
     <div class="jumbotron">
         <h3 class="message-h3">All Conversations:</h3>
-        <!-->Shows users they have already started a conversation with<-->
+        <%#  Shows users they have already started a conversation with %>
         <% @conversations.each do |conversation| %>
             <% if conversation.sender_id == current_user.id || conversation.recipient_id == current_user.id %>
             <% if conversation.sender_id == current_user.id %>
@@ -15,7 +15,7 @@
         <% end %>
         <br>
         <br>
-        <!-->Shows users they have not started a conversation with<-->
+        <%# Shows users they have not started a conversation with %>
         <h3 class="message-h3">All Users:</h3>
         <% @users.each do |user| %>
             <% if user.id != current_user.id %><h3 class="usernames">

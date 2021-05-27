@@ -5,13 +5,13 @@
         <div class="col-sm-6 col-md-4">
             <div class="thumbnail">
                 <h3 class="title-heading"><%= listing.title %></h3>
-                <!-->Displays images and default image if none uploaded<-->
+                <%# Displays images and default image if none uploaded %>
                 <img class="img-responsive"> <%= listing.images.attached? ? ( image_tag listing.images.first ) : ( image_tag 'default.png') %></img>
                 <div class="caption">
                     <p><%= listing.description %></p>
                     <h3>Price: $<%= listing.price%></h3>
                     <p> 
-                    <!-->Only shows buy if listing is not current users<-->
+                    <%# Only shows buy if listing is not current users %>
                     <% unless listing.user == current_user %>
                         <%= link_to "Buy", listing, class: "btn btn-primary" %>
                     <% end %>

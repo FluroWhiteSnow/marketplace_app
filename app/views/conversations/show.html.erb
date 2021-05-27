@@ -1,6 +1,6 @@
 
 <div class="messages-wrap message-form">
-        <!-->Displays messages between users<-->
+        <%# Displays messages between users %>
         <% @messages.each do |message| %>
             <% if message.body %>
                 <div class="<%= message.user == current_user ? "text-end" : "text-start" %> " >
@@ -9,7 +9,7 @@
                     <div class="message-body"><%= message.body %></div>     
             <% end %>
         <% end %>
-    <!-->Form to allow for messages to be created between users<-->
+    <%# Form to allow for messages to be created between users %>
     <div  class="message-form">
         <%= form_with model: [@conversation, @conversation.messages.build] do |f| %>
             <%= f.text_area :body%>
