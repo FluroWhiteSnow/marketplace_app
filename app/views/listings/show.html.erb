@@ -10,13 +10,17 @@
                 <h3>Price: $<%= @listing.price%></h3>
                 <br>
                 <div class="view_button">
-                    
-                    <%= link_to "Contact Vendor", conversations_path(sender_id: current_user.id, recipient_id: @listing.user.id), 
-                    method: "post", class:"view_button btn btn-primary btn-lg"%>
+                    <% unless @listing.user == current_user %>
+                        <%= link_to "Contact Vendor", conversations_path(sender_id: current_user.id, recipient_id: @listing.user.id), 
+                        method: "post", class:"view_button btn btn-primary btn-lg"%>
 
-
-                    <%= button_tag "Buy", data: {stripe:'payment', session_id: @session_id, public_key: Rails.application.credentials.dig(:stripe, :public_key) }, 
-                    class:"stripe_button view_button btn btn-primary btn-lg", id:'stripe_button' %>
+                        <%= button_tag "Buy", data: {stripe:'payment', session_id: @session_id, public_key: Rails.application.credentials.dig(:stripe, :public_key) }, 
+                        class:"stripe_button view_button btn btn-primary btn-lg", id:'stripe_button' %>
+                    <% end %>
+                    <% if @listing.user == current_user %>
+                        <%= link_to "Delete", @listing, method: :delete, class: "btn btn-link"%> 
+                        <%= link_to "Edit Listing", edit_listing_path, class:"btn btn-link"%>
+                    <%end%>
                 </div>
             </div>
         </div>
