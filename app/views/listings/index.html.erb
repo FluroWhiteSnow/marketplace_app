@@ -1,29 +1,32 @@
 <h1>Items for Sale!</h1>
 
+
 <% @listings.each do |listing| %>
-    <div class="row image-flex">
-        <div class="col-sm-6 col-md-4">
-            <div class="thumbnail">
-                <h3 class="title-heading"><%= listing.title %></h3>
-                <%# Displays images and default image if none uploaded %>
-                <img class="img-responsive"> <%= listing.images.attached? ? ( image_tag listing.images.first ) : ( image_tag 'default.png') %></img>
-                <div class="caption">
-                    <p><%= listing.description %></p>
-                    <h3>Price: $<%= listing.price%></h3>
-                    <p> 
-                    <%# Only shows buy if listing is not current users %>
-                    <% unless listing.user == current_user %>
-                        <%= link_to "Buy", listing, class: "btn btn-primary" %>
-                    <% end %>
-                    <% if listing.user == current_user %>
-                        <%= link_to "Delete", listing, method: :delete, class: "btn btn-primary"%> 
-                        <%= link_to "Edit Listing", edit_listing_path(listing), class:"btn btn-primary"%>
-                    <%end%>
-                    <%= link_to "View", listing, class: "btn btn-primary" %>
-                    </p>
+    <% if listing.status != "purchased" %>
+        <div class="row image-flex">
+            <div class="col-sm-6 col-md-4">
+                <div class="thumbnail">
+                    <h3 class="title-heading"><%= listing.title %></h3>
+                    <%# Displays images and default image if none uploaded %>
+                    <img class="img-responsive"> <%= listing.images.attached? ? ( image_tag listing.images.first ) : ( image_tag 'default.png') %></img>
+                    <div class="caption">
+                        <p><%= listing.description %></p>
+                        <h3>Price: $<%= listing.price%></h3>
+                        <p> 
+                        <%# Only shows buy if listing is not current users %>
+                        <% unless listing.user == current_user %>
+                            <%= link_to "Buy", listing, class: "btn btn-primary" %>
+                        <% end %>
+                        <% if listing.user == current_user %>
+                            <%= link_to "Delete", listing, method: :delete, class: "btn btn-primary"%> 
+                            <%= link_to "Edit Listing", edit_listing_path(listing), class:"btn btn-primary"%>
+                        <%end%>
+                        <%= link_to "View", listing, class: "btn btn-primary" %>
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
+    <%end%>
 <% end %>
 
