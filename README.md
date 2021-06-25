@@ -71,7 +71,7 @@ And to show you a recipet of your purchase.
 **Pink:** Anyone can view, no need to be logged in
 **Green:** Need to be logged in to view / use
 
-![Screenshot from 2021-06-25 16-26-08.png](../../imgs/sitemap.png)
+![Screenshot from 2021-06-25 16-26-08.png](imgs/sitemap.png)
 
 ---
 
@@ -217,7 +217,7 @@ I used **Git + Github** for my version controll. Git allows me to make saves in 
 
 ## ERD
 
-![Screenshot from 2021-06-25 20-42-23.png](../../imgs/erd.png)
+![Screenshot from 2021-06-25 20-42-23.png](imgs/erd.png)
 
 ## Project Management
 
@@ -230,20 +230,20 @@ testing; this step ensured what i made worked as intened, lastly the done sectio
 
 ### Trello Board 1
 
-![Screenshot from 2021-06-25 17-10-08.png](../../imgs/trello1.png)
+![Screenshot from 2021-06-25 17-10-08.png](imgs/trello1.png)
 
 ### Trello Board 2
 
-![Screenshot from 2021-06-25 17-10-44.png](../../imgs/trello2.png)
+![Screenshot from 2021-06-25 17-10-44.png](imgs/trello2.png)
 
 ### Trello Board 3
 
-![Screenshot from 2021-06-25 17-11-10.png](../../imgs/trello3.png)
+![Screenshot from 2021-06-25 17-11-10.png](imgs/trello3.png)
 
 ### Trello Board 4
 
-![Screenshot from 2021-06-25 17-11-27.png](../../imgs/trello4.png)
+![Screenshot from 2021-06-25 17-11-27.png](imgs/trello4.png)
 
 ### Trello Board 5
 
-![Screenshot from 2021-06-25 17-11-57.png](../../imgs/trello5.png)
+![Screenshot from 2021-06-25 17-11-57.png](imgs/trello5.png)
