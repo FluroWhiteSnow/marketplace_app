@@ -8,6 +8,7 @@ $gray-medium-light: #eaeaea;
 
 body {
   padding-top: 60px;
+  background-color: #fcf5eb;
 }
 
 section {
@@ -18,7 +19,7 @@ textarea {
   resize: vertical;
 }
 
-.center {
+.jumbotron .center {
   text-align: center;
   h1 {
     margin-bottom: 10px;
@@ -196,6 +197,7 @@ footer {
 .jumbotron {
   width: 80vw;
   border-radius: 10px;
+  background-color: #e6ded1;
 }
 
 .home-container {
